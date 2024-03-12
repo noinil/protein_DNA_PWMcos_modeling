@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#============ PBS Options ============
+#QSUB -q gr10265b
+#QSUB -ug gr10265
+#QSUB -W 23:00
+#QSUB -A p=1:t=8:c=8:m=10G
+
+#QSUB -m be
+#============ Shell Script ============
+cd $QSUB_WORKDIR
+set -x
+
+# automatically
+# export OMP_NUM_THREADS=$LSB_THREADS
+
+~/bin/cafemol_pdssopt pu1.inp
+

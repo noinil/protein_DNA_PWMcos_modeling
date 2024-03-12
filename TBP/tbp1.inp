@@ -1,0 +1,248 @@
+**************************************************************
+**                                                          **
+**                 Input file of CafeMol                    **
+**                                                          **
+**                                                          **
+**************************************************************
+
+<<<< filenames
+path         = .
+filename     = pdss
+OUTPUT psf rst pdb dcd
+path_pdb     = ./pdb
+path_ini     = ./pdb
+path_natinfo = ./ninfo
+path_para    = ./para
+path_aicg    = ./aicg
+>>>> 
+
+<<<< job_cntl
+i_run_mode      = 2
+i_simulate_type = 1
+i_initial_state = 3
+>>>>
+
+<<<< unit_and_state
+i_seq_read_style       = 1
+i_go_native_read_style = 2
+1-2  dna2     dna.pdb
+3    protein  pro.pdb
+>>>>
+
+<<<< initial_struct
+1-2  dna0.pdb
+3    pro0.pdb
+>>>>
+
+<<<< native_info_sim1
+NINFO(1/1)    1
+NINFO(2/2)    2
+NINFO(3/3)    3
+NINFO(1-2/3)  4
+1 = strand1.ninfo
+2 = strand2.ninfo
+3 = pro.ninfo
+4 = pro_dna.ninfo
+>>>>
+
+<<<< energy_function
+LOCAL(1-2)       L_DNA2C
+LOCAL(3)         L_AICG2_PLUS
+NLOCAL(1-2/1-2)  DNA2C ELE
+NLOCAL(3/3)      AICG2_PLUS EXV
+NLOCAL(1-2/3)    EXV ELE PRO_DNA_SS
+
+i_use_atom_protein    = 0
+i_use_atom_dna        = 0
+i_go_atom_dna         = 1
+i_output_energy_style = 1
+i_residue_exv_radii   = 1
+
+i_coef_from_ninfo     = 1
+>>>>
+
+<<<< md_information
+n_step_sim = 1
+tstep_size = 0.2
+
+n_tstep(1) = 1000000000
+** n_tstep(1) = 100
+
+n_step_save = 10000
+** n_step_save = 10
+
+n_step_neighbor = 100
+
+i_com_zeroing   = 0
+i_no_trans_rot  = 0
+i_redef_para    = 0
+
+tempk           = 300.0
+n_seed          = 9973
+
+i_anchor        = 1
+i_bridge        = 1
+>>>>
+
+<<<< aicg
+i_aicg           = 1
+>>>>
+
+<<<< flexible_local
+k_dih = 1.00000
+k_ang = 1.00000
+>>>>
+
+<<<< electrostatic
+cutoff_ele            =  20.0
+ionic_strength        =   0.15
+diele_water           =  78.0
+i_diele               =   1
+dna2_phos_pro_charge  =  -1.00
+
+CHARGE_CHANGE  299    0.556903
+CHARGE_CHANGE  300    0.572573
+CHARGE_CHANGE  301   0.0910184
+CHARGE_CHANGE  302   -0.109487
+CHARGE_CHANGE  304   0.0066111
+CHARGE_CHANGE  306    0.536814
+CHARGE_CHANGE  307     0.43803
+CHARGE_CHANGE  309    0.280161
+CHARGE_CHANGE  311    0.259124
+CHARGE_CHANGE  313    0.134623
+CHARGE_CHANGE  315    0.209489
+CHARGE_CHANGE  316    0.183919
+CHARGE_CHANGE  317    0.325209
+CHARGE_CHANGE  319   0.0207164
+CHARGE_CHANGE  321  -0.0402139
+CHARGE_CHANGE  322  -0.0632105
+CHARGE_CHANGE  324   -0.366174
+CHARGE_CHANGE  325   -0.169742
+CHARGE_CHANGE  326    0.418079
+CHARGE_CHANGE  328    0.625233
+CHARGE_CHANGE  329    0.117281
+CHARGE_CHANGE  330   -0.273118
+CHARGE_CHANGE  331   -0.373017
+CHARGE_CHANGE  332   -0.231829
+CHARGE_CHANGE  333    0.102127
+CHARGE_CHANGE  334    0.280862
+CHARGE_CHANGE  335    0.481164
+CHARGE_CHANGE  336    0.437198
+CHARGE_CHANGE  337    0.361053
+CHARGE_CHANGE  338    0.376865
+CHARGE_CHANGE  343    0.215532
+CHARGE_CHANGE  345    0.753791
+CHARGE_CHANGE  346    0.632914
+CHARGE_CHANGE  348    0.331927
+CHARGE_CHANGE  350    0.295832
+CHARGE_CHANGE  352   0.0454952
+CHARGE_CHANGE  354    0.210507
+CHARGE_CHANGE  355    0.362117
+CHARGE_CHANGE  356    0.822692
+CHARGE_CHANGE  358    0.327224
+CHARGE_CHANGE  360    0.210265
+CHARGE_CHANGE  362    0.345961
+CHARGE_CHANGE  363    0.555726
+CHARGE_CHANGE  365  -0.0661292
+CHARGE_CHANGE  366   -0.299728
+CHARGE_CHANGE  367    -0.19814
+CHARGE_CHANGE  368 -0.00925276
+CHARGE_CHANGE  369   -0.147763
+CHARGE_CHANGE  371    0.142671
+CHARGE_CHANGE  372    0.531341
+CHARGE_CHANGE  375    0.678924
+CHARGE_CHANGE  376     1.00431
+CHARGE_CHANGE  379    0.956552
+CHARGE_CHANGE  380    0.748711
+CHARGE_CHANGE  382    0.242953
+CHARGE_CHANGE  383    0.846305
+CHARGE_CHANGE  385    0.015815
+CHARGE_CHANGE  386   -0.194995
+CHARGE_CHANGE  387   0.0229219
+CHARGE_CHANGE  389    0.516689
+CHARGE_CHANGE  390    0.524509
+CHARGE_CHANGE  391    0.279807
+CHARGE_CHANGE  392    0.271657
+CHARGE_CHANGE  393    0.244951
+CHARGE_CHANGE  394    0.320842
+CHARGE_CHANGE  395    0.128978
+CHARGE_CHANGE  396     0.68649
+CHARGE_CHANGE  397      0.4647
+CHARGE_CHANGE  399    0.156281
+CHARGE_CHANGE  401     0.11599
+CHARGE_CHANGE  402   0.0156275
+CHARGE_CHANGE  403    0.115933
+CHARGE_CHANGE  405    0.350791
+CHARGE_CHANGE  407   0.0462905
+CHARGE_CHANGE  409   -0.291791
+CHARGE_CHANGE  411   -0.420361
+CHARGE_CHANGE  414   -0.491779
+CHARGE_CHANGE  415   -0.125568
+CHARGE_CHANGE  416   0.0559238
+CHARGE_CHANGE  417   -0.199711
+CHARGE_CHANGE  418   -0.182815
+CHARGE_CHANGE  419    0.158023
+CHARGE_CHANGE  420   0.0474351
+CHARGE_CHANGE  421   -0.267029
+CHARGE_CHANGE  422   -0.161815
+CHARGE_CHANGE  423   -0.550819
+CHARGE_CHANGE  424    -0.83305
+CHARGE_CHANGE  425   -0.536269
+CHARGE_CHANGE  426   -0.890694
+CHARGE_CHANGE  427   -0.487814
+CHARGE_CHANGE  428    0.275075
+CHARGE_CHANGE  429    0.330915
+CHARGE_CHANGE  432  -0.0687484
+CHARGE_CHANGE  434    0.294608
+CHARGE_CHANGE  435   0.0880158
+CHARGE_CHANGE  436    0.739229
+CHARGE_CHANGE  437    0.352429
+CHARGE_CHANGE  438  -0.0141015
+CHARGE_CHANGE  439    0.584124
+CHARGE_CHANGE  441    0.229689
+CHARGE_CHANGE  443   0.0329824
+CHARGE_CHANGE  445   0.0686365
+CHARGE_CHANGE  446    0.149292
+CHARGE_CHANGE  447    0.574087
+CHARGE_CHANGE  449    0.249375
+CHARGE_CHANGE  451    0.152122
+CHARGE_CHANGE  453    0.266865
+CHARGE_CHANGE  454    0.672838
+CHARGE_CHANGE  456    0.184108
+CHARGE_CHANGE  457   -0.164568
+CHARGE_CHANGE  458   -0.368947
+CHARGE_CHANGE  459   -0.413807
+CHARGE_CHANGE  460    -0.49367
+CHARGE_CHANGE  462   -0.534591
+CHARGE_CHANGE  463   -0.568856
+CHARGE_CHANGE  466   -0.311466
+CHARGE_CHANGE  467   -0.248658
+CHARGE_CHANGE  469   -0.197905
+CHARGE_CHANGE  470    0.331208
+CHARGE_CHANGE  471   -0.105919
+CHARGE_CHANGE  473    0.206875
+CHARGE_CHANGE  474    0.271621
+CHARGE_CHANGE  475   -0.121929
+CHARGE_CHANGE  476  -0.0275722
+CHARGE_CHANGE  477  -0.0472215
+
+>>>>
+
+<<<< in_pdss
+pro_dna_ss_en0    = 0.0
+pro_dna_ss_factor = 1.0
+>>>>
+
+<<<< group
+GROUP(1)   (1-298)
+GROUP(2)   (299-477)
+>>>>
+
+<<<< anchor_para
+ANCH_CENTER_INI       1       200.0      0.0
+>>>>
+
+<<<< bridge_para
+i_lower_bound = 0
+BRIDGE_CENTER    1   2    200.0  150.0
+>>>>

@@ -1,0 +1,184 @@
+**************************************************************
+**                                                          **
+**                 Input file of CafeMol                    **
+**                                                          **
+**                                                          **
+**************************************************************
+
+<<<< filenames
+path         = .
+filename     = pdss
+OUTPUT psf rst pdb dcd
+path_pdb     = ./pdb
+path_ini     = ./pdb
+path_natinfo = ./ninfo
+path_para    = ./para
+path_aicg    = ./aicg
+>>>> 
+
+<<<< job_cntl
+i_run_mode      = 2
+i_simulate_type = 1
+i_initial_state = 3
+>>>>
+
+<<<< unit_and_state
+i_seq_read_style       = 1
+i_go_native_read_style = 2
+1-2  dna2     dna.pdb
+3    protein  pro.pdb
+>>>>
+
+<<<< initial_struct
+1-2  dna0.pdb
+3    pro0.pdb
+>>>>
+
+<<<< native_info_sim1
+NINFO(1/1)    1
+NINFO(2/2)    2
+NINFO(3/3)    3
+NINFO(1-2/3)  4
+1 = strand1.ninfo
+2 = strand2.ninfo
+3 = pro.ninfo
+4 = pro_dna.ninfo
+>>>>
+
+<<<< energy_function
+LOCAL(1-2)       L_DNA2C
+LOCAL(3)         L_AICG2_PLUS
+NLOCAL(1-2/1-2)  DNA2C ELE
+NLOCAL(3/3)      AICG2_PLUS EXV
+NLOCAL(1-2/3)    EXV ELE PRO_DNA_SS
+
+i_use_atom_protein    = 0
+i_use_atom_dna        = 0
+i_go_atom_dna         = 1
+i_output_energy_style = 1
+i_residue_exv_radii   = 1
+
+i_coef_from_ninfo     = 1
+>>>>
+
+<<<< md_information
+n_step_sim = 1
+tstep_size = 0.3
+
+n_tstep(1) = 100000000
+** n_tstep(1) = 100
+
+n_step_save = 10000
+** n_step_save = 10
+
+n_step_neighbor = 100
+
+i_com_zeroing   = 0
+i_no_trans_rot  = 0
+i_redef_para    = 0
+
+tempk           = 300.0
+n_seed          = 9973
+
+i_anchor        = 1
+i_bridge        = 1
+>>>>
+
+<<<< aicg
+i_aicg           = 1
+>>>>
+
+<<<< flexible_local
+k_dih = 1.00000
+k_ang = 1.00000
+>>>>
+
+<<<< electrostatic
+cutoff_ele            =  20.0
+ionic_strength        =   0.15
+diele_water           =  78.0
+i_diele               =   1
+dna2_phos_pro_charge  =  -1.00
+
+CHARGE_CHANGE   599      1.073
+CHARGE_CHANGE   600      0.241
+CHARGE_CHANGE   601      0.373
+CHARGE_CHANGE   603     -0.335
+CHARGE_CHANGE   604     -0.539
+CHARGE_CHANGE   608     -0.614
+CHARGE_CHANGE   611      0.005
+CHARGE_CHANGE   612     -0.047
+CHARGE_CHANGE   613      0.033
+CHARGE_CHANGE   614     -0.439
+CHARGE_CHANGE   615     -0.495
+CHARGE_CHANGE   616     -0.304
+CHARGE_CHANGE   617     -0.357
+CHARGE_CHANGE   620     -0.155
+CHARGE_CHANGE   621     -0.051
+CHARGE_CHANGE   622      0.009
+CHARGE_CHANGE   623     -0.085
+CHARGE_CHANGE   624     -0.095
+CHARGE_CHANGE   625     -0.298
+CHARGE_CHANGE   626     -0.025
+CHARGE_CHANGE   630     -0.095
+CHARGE_CHANGE   633      0.797
+CHARGE_CHANGE   634      0.800
+CHARGE_CHANGE   635      0.172
+CHARGE_CHANGE   636      0.027
+CHARGE_CHANGE   637      0.202
+CHARGE_CHANGE   638      0.033
+CHARGE_CHANGE   641     -0.077
+CHARGE_CHANGE   642     -0.303
+CHARGE_CHANGE   645     -0.355
+CHARGE_CHANGE   646     -0.256
+CHARGE_CHANGE   647      0.449
+CHARGE_CHANGE   648      0.245
+CHARGE_CHANGE   649      1.004
+CHARGE_CHANGE   650      0.790
+CHARGE_CHANGE   651      0.826
+CHARGE_CHANGE   652      0.365
+CHARGE_CHANGE   653      0.363
+CHARGE_CHANGE   654      0.361
+CHARGE_CHANGE   655      0.286
+CHARGE_CHANGE   656      0.630
+CHARGE_CHANGE   657      0.881
+CHARGE_CHANGE   660      1.053
+CHARGE_CHANGE   661      1.103
+CHARGE_CHANGE   663      0.820
+CHARGE_CHANGE   664      0.964
+CHARGE_CHANGE   666      0.619
+CHARGE_CHANGE   667      0.656
+CHARGE_CHANGE   668     -0.062
+CHARGE_CHANGE   669     -0.049
+CHARGE_CHANGE   670     -0.362
+CHARGE_CHANGE   672      0.491
+CHARGE_CHANGE   673      0.713
+CHARGE_CHANGE   675      1.087
+CHARGE_CHANGE   676      0.781
+CHARGE_CHANGE   677      0.934
+CHARGE_CHANGE   678      0.495
+CHARGE_CHANGE   681      0.052
+CHARGE_CHANGE   683     -0.141
+CHARGE_CHANGE   684     -0.227
+CHARGE_CHANGE   685     -0.594
+CHARGE_CHANGE   686     -0.370
+>>>>
+
+<<<< in_pdss
+pro_dna_ss_en0    = 0.0
+pro_dna_ss_factor = 1.0
+>>>>
+
+<<<< group
+GROUP(1)   (1-598)
+GROUP(2)   (599-686)
+>>>>
+
+<<<< anchor_para
+ANCH_CENTER_INI       1       200.0      0.0
+>>>>
+
+<<<< bridge_para
+i_lower_bound = 0
+BRIDGE_CENTER    1   2    200.0  250.0
+>>>>

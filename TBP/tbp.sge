@@ -1,0 +1,14 @@
+#!/bin/sh
+
+#$ -S /bin/sh
+#$ -cwd
+#$ -V
+#$ -q all.q
+#$ -pe OpenMP 8
+#$ -N h6_1
+
+export OMP_NUM_THREADS=$NSLOTS
+export BIN_PATH=/home/tan/usr/local/bin
+
+$BIN_PATH/cafemol_pdssopt_exv tbp.inp
+
